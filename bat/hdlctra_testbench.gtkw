@@ -1,0 +1,79 @@
+[*]
+[*] GTKWave Analyzer v3.3.71 (w)1999-2016 BSI
+[*] Tue Nov 20 07:31:45 2018
+[*]
+[dumpfile] "D:\iverilog_sim\hdlc_verilog\hdlctra\hdlctra_testbench.vcd"
+[dumpfile_mtime] "Tue Nov 20 07:26:23 2018"
+[dumpfile_size] 19916752
+[savefile] "D:\iverilog_sim\hdlc_verilog\hdlctra\hdlctra_testbench.gtkw"
+[timestart] 0
+[size] 1920 1057
+[pos] -1 -1
+*-23.054813 12760000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] hdlctra_testbench.
+[treeopen] hdlctra_testbench.u_hdlctra.
+[treeopen] hdlctra_testbench.u_hdlctra.u_insert0.
+[treeopen] hdlctra_testbench.u_hdlctra.u_insert0.u_flag_i0.
+[sst_width] 308
+[signals_width] 198
+[sst_expanded] 1
+[sst_vpaned_height] 314
+@22
+hdlctra_testbench.u_hdlctra.ram_outd[7:0]
+@28
+hdlctra_testbench.u_hdlctra.datat
+hdlctra_testbench.u_hdlctra.clk
+hdlctra_testbench.u_hdlctra.current_state[2:0]
+@24
+[color] 2
+hdlctra_testbench.u_hdlctra.bytes[8:0]
+[color] 2
+hdlctra_testbench.u_hdlctra.tra_bytes_1[9:0]
+@22
+hdlctra_testbench.u_hdlctra.u_insert0.ram_outd[7:0]
+@28
+hdlctra_testbench.u_hdlctra.inr
+@22
+[color] 3
+hdlctra_testbench.u_hdlctra.ramd[7:0]
+@28
+[color] 3
+hdlctra_testbench.u_hdlctra.u_insert0.in_valid
+hdlctra_testbench.u_hdlctra.u_insert0.insert0_flag
+[color] 1
+hdlctra_testbench.u_hdlctra.u_insert0.u_flag_i0.insert0_flag_d5
+@22
+hdlctra_testbench.u_hdlctra.u_insert0.u_flag_i0.ji_flag_insert0_ram.addra[16:0]
+@28
+[color] 2
+hdlctra_testbench.u_hdlctra.u_insert0.u_flag_i0.ji_flag_insert0_ram.dina
+@29
+[color] 5
+hdlctra_testbench.u_hdlctra.u_insert0.u_flag_i0.ji_flag_insert0_ram.ena
+@22
+[color] 2
+hdlctra_testbench.u_hdlctra.u_insert0.u_flag_i0.ou_flag_insert0_ram.addra[16:0]
+@28
+[color] 2
+hdlctra_testbench.u_hdlctra.u_insert0.u_flag_i0.ou_flag_insert0_ram.dina
+[color] 5
+hdlctra_testbench.u_hdlctra.u_insert0.u_flag_i0.ou_flag_insert0_ram.ena
+@22
+[color] 3
+hdlctra_testbench.u_hdlctra.u_insert0.u_flag_i0.ji_flag_insert0_ram.addrb[16:0]
+@28
+[color] 3
+hdlctra_testbench.u_hdlctra.u_insert0.u_flag_i0.ji_flag_insert0_ram.doutb
+[color] 3
+hdlctra_testbench.u_hdlctra.u_insert0.u_flag_i0.ji_flag_insert0_ram.enb
+@22
+[color] 3
+hdlctra_testbench.u_hdlctra.u_insert0.u_flag_i0.ou_flag_insert0_ram.addrb[16:0]
+@28
+[color] 3
+hdlctra_testbench.u_hdlctra.u_insert0.u_flag_i0.ou_flag_insert0_ram.doutb
+[color] 3
+hdlctra_testbench.u_hdlctra.u_insert0.u_flag_i0.ou_flag_insert0_ram.enb
+hdlctra_testbench.u_hdlctra.u_insert0.u_flag_i0.insert0_flag_d5
+[pattern_trace] 1
+[pattern_trace] 0

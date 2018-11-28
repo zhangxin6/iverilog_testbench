@@ -1,0 +1,58 @@
+[*]
+[*] GTKWave Analyzer v3.3.71 (w)1999-2016 BSI
+[*] Tue Nov 20 07:13:53 2018
+[*]
+[dumpfile] "D:\iverilog_sim\insert0\insert0_testbench.vcd"
+[dumpfile_mtime] "Tue Nov 20 06:42:22 2018"
+[dumpfile_size] 25437161
+[savefile] "D:\iverilog_sim\insert0\insert0_testbench.gtkw"
+[timestart] 0
+[size] 1920 1057
+[pos] -1 -1
+*-24.928774 30800000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] insert0_testbench.
+[treeopen] insert0_testbench.u_insert0.
+[treeopen] insert0_testbench.u_insert0.u_flag_i0.
+[treeopen] insert0_testbench.u_insert0.u_insert0_ram.
+[sst_width] 287
+[signals_width] 470
+[sst_expanded] 1
+[sst_vpaned_height] 314
+@24
+insert0_testbench.u_insert0.u_flag_i0.cnt_ji_ou
+insert0_testbench.u_insert0.u_flag_i0.insert0_flag_valid
+@800200
+-1
+@24
+insert0_testbench.u_insert0.u_flag_i0.ji_flag_insert0_ram.addra[16:0]
+insert0_testbench.u_insert0.u_flag_i0.ji_flag_insert0_ram.dina
+insert0_testbench.u_insert0.u_flag_i0.ji_flag_insert0_ram.ena
+insert0_testbench.u_insert0.u_flag_i0.ji_flag_insert0_ram.addrb[16:0]
+insert0_testbench.u_insert0.u_flag_i0.ji_flag_insert0_ram.doutb
+insert0_testbench.u_insert0.u_flag_i0.ji_flag_insert0_ram.enb
+@1000200
+-1
+@800200
+-2
+@24
+insert0_testbench.u_insert0.u_flag_i0.ou_flag_insert0_ram.addra[16:0]
+insert0_testbench.u_insert0.u_flag_i0.ou_flag_insert0_ram.dina
+insert0_testbench.u_insert0.u_flag_i0.ou_flag_insert0_ram.ena
+insert0_testbench.u_insert0.u_flag_i0.ou_flag_insert0_ram.doutb
+insert0_testbench.u_insert0.u_flag_i0.ou_flag_insert0_ram.enb
+insert0_testbench.u_insert0.u_flag_i0.ou_flag_insert0_ram.addrb[16:0]
+@1000200
+-2
+@28
+insert0_testbench.u_insert0.insert0_flag_valid
+>-80
+[color] 2
+insert0_testbench.u_insert0.insert0_flag
+>0
+[color] 2
+insert0_testbench.u_insert0.u_flag_i0.insert0_flag_valid_d3
+insert0_testbench.u_insert0.u_flag_i0.clk
+@23
+insert0_testbench.u_insert0.ram_outd[7:0]
+[pattern_trace] 1
+[pattern_trace] 0

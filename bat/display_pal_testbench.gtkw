@@ -1,0 +1,46 @@
+[*]
+[*] GTKWave Analyzer v3.3.71 (w)1999-2016 BSI
+[*] Sun Oct 28 10:23:57 2018
+[*]
+[dumpfile] "D:\iverilog_sim\pal\display_pal_testbench.vcd"
+[dumpfile_mtime] "Sun Oct 28 10:22:46 2018"
+[dumpfile_size] 14033280
+[savefile] "D:\iverilog_sim\pal\display_pal_testbench.gtkw"
+[timestart] 799300000
+[size] 1920 1017
+[pos] -1 -1
+*-24.688368 915735000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] display_pal_testbench.
+[sst_width] 197
+[signals_width] 190
+[sst_expanded] 1
+[sst_vpaned_height] 300
+@24
+display_pal_testbench.u_display_pal.clk_10m_cnt[9:0]
+display_pal_testbench.u_display_pal.dac_hsync
+display_pal_testbench.u_display_pal.dac_vsync
+display_pal_testbench.u_display_pal.dac_vsync_cnt[19:0]
+@25
+[color] 2
+display_pal_testbench.u_display_pal.dram_addr[18:0]
+@24
+display_pal_testbench.u_display_pal.dram_ce0_n
+display_pal_testbench.u_display_pal.dram_datain[15:0]
+display_pal_testbench.u_display_pal.dram_rclk
+display_pal_testbench.u_display_pal.dram_ren
+display_pal_testbench.u_display_pal.drst
+display_pal_testbench.u_display_pal.field
+display_pal_testbench.u_display_pal.h_blank
+display_pal_testbench.u_display_pal.h_sync_counter[15:0]
+display_pal_testbench.u_display_pal.pf_blank
+display_pal_testbench.u_display_pal.pf_pixel[7:0]
+display_pal_testbench.u_display_pal.pf_sync
+display_pal_testbench.u_display_pal.rst
+display_pal_testbench.u_display_pal.sync_flag
+display_pal_testbench.u_display_pal.sync_temp1
+display_pal_testbench.u_display_pal.v_blank
+display_pal_testbench.u_display_pal.v_blank_cnt[23:0]
+display_pal_testbench.u_display_pal.v_clk
+display_pal_testbench.u_display_pal.wrst
+[pattern_trace] 1
+[pattern_trace] 0

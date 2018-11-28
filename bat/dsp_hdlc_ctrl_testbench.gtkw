@@ -1,0 +1,53 @@
+[*]
+[*] GTKWave Analyzer v3.3.71 (w)1999-2016 BSI
+[*] Mon Nov 19 08:58:48 2018
+[*]
+[dumpfile] "D:\iverilog_sim\dsp_hdlc_ctrl\dsp_hdlc_ctrl_testbench.vcd"
+[dumpfile_mtime] "Mon Nov 19 08:54:06 2018"
+[dumpfile_size] 15683671
+[savefile] "D:\iverilog_sim\dsp_hdlc_ctrl\dsp_hdlc_ctrl_testbench.gtkw"
+[timestart] 2554400
+[size] 1920 1057
+[pos] -1 -1
+*-14.540915 2646000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] dsp_hdlc_ctrl_testbench.
+[sst_width] 197
+[signals_width] 307
+[sst_expanded] 1
+[sst_vpaned_height] 314
+@28
+dsp_hdlc_ctrl_testbench.trastart_flag
+dsp_hdlc_ctrl_testbench.clk
+dsp_hdlc_ctrl_testbench.u_hdlctra.datat
+@22
+dsp_hdlc_ctrl_testbench.ramd[7:0]
+dsp_hdlc_ctrl_testbench.u_dsp_hdlc_ctrl.emif_data[15:0]
+dsp_hdlc_ctrl_testbench.u_dsp_hdlc_ctrl.emif_dpram_addr[23:0]
+@28
+dsp_hdlc_ctrl_testbench.u_dsp_hdlc_ctrl.emif_dpram_wen
+dsp_hdlc_ctrl_testbench.u_hdlctra.clk
+dsp_hdlc_ctrl_testbench.u_hdlctra.datat
+dsp_hdlc_ctrl_testbench.u_hdlctra.current_state[2:0]
+@24
+[color] 2
+dsp_hdlc_ctrl_testbench.u_hdlctra.bytes[8:0]
+@22
+dsp_hdlc_ctrl_testbench.u_dsp_hdlc_ctrl.bytes[9:0]
+[color] 3
+dsp_hdlc_ctrl_testbench.u_dsp_hdlc_ctrl.bytes3[9:0]
+[color] 3
+dsp_hdlc_ctrl_testbench.u_dsp_hdlc_ctrl.doutb[7:0]
+@28
+[color] 3
+dsp_hdlc_ctrl_testbench.u_dsp_hdlc_ctrl.rden2_2
+@22
+[color] 5
+dsp_hdlc_ctrl_testbench.u_dsp_hdlc_ctrl.emif_data[15:0]
+@25
+[color] 5
+dsp_hdlc_ctrl_testbench.u_dsp_hdlc_ctrl.emif_dpram_addr[23:0]
+@28
+[color] 5
+dsp_hdlc_ctrl_testbench.u_dsp_hdlc_ctrl.emif_dpram_wen
+[pattern_trace] 1
+[pattern_trace] 0
