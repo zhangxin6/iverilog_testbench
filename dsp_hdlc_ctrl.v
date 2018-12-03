@@ -1,12 +1,13 @@
 `timescale 1 ns / 1 ns
+`define DEBUG
 
 module dsp_hdlc_ctrl ( clk_100m, clk, rst_n, emif_dpram_wen, emif_dpram_addr, emif_data, trastart_flag, db, ramd);
-	input                 clk_100m;          // 串口发送时钟
-	input                 clk ;              // 复位，低有效
-	input                 rst_n;             // 发送出发脉冲，高脉冲，至少一个clkt宽度
-	input                 emif_dpram_wen;    // 1帧发送字节数
+	input                 clk_100m;          
+	input                 clk ;              
+	input                 rst_n;             
+	input                 emif_dpram_wen;    
 	input       [23:0]    emif_dpram_addr;
-	input       [15:0]    emif_data;         // 发送缓存区接口数据信号
+	input       [15:0]    emif_data;         
 	
 	output  reg           trastart_flag;
 	output  reg  [9:0]    db;
@@ -185,7 +186,20 @@ module dsp_hdlc_ctrl ( clk_100m, clk, rst_n, emif_dpram_wen, emif_dpram_addr, em
 	);
 
 	assign ramd = doutb; 
-		
+	
+	`ifdef DEBUG
+		ila_8_16384_1120  uctrl_ila_8_16384_1120 (
+			.clk    ( clk_100m                         ), 
+			.probe0 ( {clk,start}                    ),
+			.probe1 ( start_pos      ),
+			.probe2 ( cnt_8                      ),
+			.probe3 ( rden2_2        ),
+			.probe4 (  8'b0                           ),
+			.probe5 (  ramd                           ),
+			.probe6 (  cnt_trans_start               ),
+			.probe7 ( bytes3                 )
+		);
+	`endif	
 	
 endmodule
 	
