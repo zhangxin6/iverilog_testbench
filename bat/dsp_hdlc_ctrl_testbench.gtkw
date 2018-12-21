@@ -1,23 +1,23 @@
 [*]
 [*] GTKWave Analyzer v3.3.71 (w)1999-2016 BSI
-[*] Mon Nov 19 08:58:48 2018
+[*] Fri Dec 14 01:50:23 2018
 [*]
-[dumpfile] "D:\iverilog_sim\dsp_hdlc_ctrl\dsp_hdlc_ctrl_testbench.vcd"
-[dumpfile_mtime] "Mon Nov 19 08:54:06 2018"
-[dumpfile_size] 15683671
-[savefile] "D:\iverilog_sim\dsp_hdlc_ctrl\dsp_hdlc_ctrl_testbench.gtkw"
-[timestart] 2554400
-[size] 1920 1057
-[pos] -1 -1
-*-14.540915 2646000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[dumpfile] "C:\Users\zhang\iverilog_testbench\bat\dsp_hdlc_ctrl_testbench.vcd"
+[dumpfile_mtime] "Fri Dec 14 01:03:43 2018"
+[dumpfile_size] 60884298
+[savefile] "C:\Users\zhang\iverilog_testbench\bat\dsp_hdlc_ctrl_testbench.gtkw"
+[timestart] 498810000
+[size] 958 1048
+[pos] -8 -1
+*-22.286488 500850000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] dsp_hdlc_ctrl_testbench.
+[treeopen] dsp_hdlc_ctrl_testbench.u_dsp_hdlc_ctrl.
 [sst_width] 197
 [signals_width] 307
 [sst_expanded] 1
-[sst_vpaned_height] 314
+[sst_vpaned_height] 311
 @28
 dsp_hdlc_ctrl_testbench.trastart_flag
-dsp_hdlc_ctrl_testbench.clk
 dsp_hdlc_ctrl_testbench.u_hdlctra.datat
 @22
 dsp_hdlc_ctrl_testbench.ramd[7:0]
@@ -43,11 +43,45 @@ dsp_hdlc_ctrl_testbench.u_dsp_hdlc_ctrl.rden2_2
 @22
 [color] 5
 dsp_hdlc_ctrl_testbench.u_dsp_hdlc_ctrl.emif_data[15:0]
-@25
+@24
 [color] 5
 dsp_hdlc_ctrl_testbench.u_dsp_hdlc_ctrl.emif_dpram_addr[23:0]
 @28
 [color] 5
 dsp_hdlc_ctrl_testbench.u_dsp_hdlc_ctrl.emif_dpram_wen
+@24
+[color] 2
+dsp_hdlc_ctrl_testbench.u_dsp_hdlc_ctrl.uctrl_ila_8_16384_1120.probe0[1:0]
+[color] 2
+dsp_hdlc_ctrl_testbench.u_dsp_hdlc_ctrl.uctrl_ila_8_16384_1120.probe1[1:0]
+[color] 2
+dsp_hdlc_ctrl_testbench.u_dsp_hdlc_ctrl.uctrl_ila_8_16384_1120.probe2[3:0]
+[color] 2
+dsp_hdlc_ctrl_testbench.u_dsp_hdlc_ctrl.uctrl_ila_8_16384_1120.probe3[3:0]
+[color] 2
+dsp_hdlc_ctrl_testbench.u_dsp_hdlc_ctrl.uctrl_ila_8_16384_1120.probe4[7:0]
+[color] 2
+dsp_hdlc_ctrl_testbench.u_dsp_hdlc_ctrl.uctrl_ila_8_16384_1120.probe5[7:0]
+[color] 2
+dsp_hdlc_ctrl_testbench.u_dsp_hdlc_ctrl.uctrl_ila_8_16384_1120.probe6[15:0]
+[color] 2
+dsp_hdlc_ctrl_testbench.u_dsp_hdlc_ctrl.uctrl_ila_8_16384_1120.probe7[31:0]
+@28
+dsp_hdlc_ctrl_testbench.clk
+dsp_hdlc_ctrl_testbench.u_dsp_hdlc_ctrl.clk_100m
+@22
+dsp_hdlc_ctrl_testbench.u_dsp_hdlc_ctrl.cnt_start[9:0]
+dsp_hdlc_ctrl_testbench.u_dsp_hdlc_ctrl.cnt_trans_start[9:0]
+@28
+[color] 4
+dsp_hdlc_ctrl_testbench.u_dsp_hdlc_ctrl.start
+[color] 4
+dsp_hdlc_ctrl_testbench.u_dsp_hdlc_ctrl.start1
+[color] 4
+dsp_hdlc_ctrl_testbench.u_dsp_hdlc_ctrl.start2
+[color] 4
+dsp_hdlc_ctrl_testbench.u_dsp_hdlc_ctrl.start3
+@23
+dsp_hdlc_ctrl_testbench.u_dsp_hdlc_ctrl.uctrl_ila_8_16384_1120.probe4[7:0]
 [pattern_trace] 1
 [pattern_trace] 0

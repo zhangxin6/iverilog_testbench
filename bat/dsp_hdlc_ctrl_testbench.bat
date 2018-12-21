@@ -19,12 +19,12 @@ set ip1="%ip_dir%\flag_insert0_ram\sim\flag_insert0_ram.v"
 set ip2="%ip_dir%\flag_insert0_ram\simulation\blk_mem_gen_v8_4.v"
 set ip3="%ip_dir%\insert0_ram\sim\insert0_ram.v"
 set ip4="%ip_dir%\hdlc_tx_ram\sim\hdlc_tx_ram.v"
-
+set ip5="%ip_dir%\ila_8_16384_1120\sim\ila_8_16384_1120.v"
 
 set vivado_dir=C:\Xilinx\Vivado\2015.1\data\verilog\src
 set vivado_lib="-y%vivado_dir%" "-y%vivado_dir%\retarget" "-y%vivado_dir%\unifast" "-y%vivado_dir%\unimacro" "-y%vivado_dir%\unisims" "-y%vivado_dir%\xeclib"
 
-iverilog -g2012 -o "%batdir%\%testbench%.vvp" %vivado_lib% %s1% %s2% %s3% %s4% %s5% %ip1% %ip2% %ip3% %ip4% %vivado_dir%/glbl.v
+iverilog -g2012 -o "%batdir%\%testbench%.vvp" %vivado_lib% %s1% %s2% %s3% %s4% %s5% %ip1% %ip2% %ip3% %ip4% %ip5% %vivado_dir%/glbl.v
 
 
 vvp "%batdir%\%testbench%.vvp"

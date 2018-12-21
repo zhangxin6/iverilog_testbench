@@ -16,7 +16,7 @@ module flag_i0(
 
 	reg  [12:0] cnt_0_number,cnt_0_valid;
 	
-	always @(posedge clk or negedge rst_n )
+	always @(posedge clk or negedge rst_n)
 	begin
 		if(rst_n == 0)
 			cnt_0_valid <= 12'b0;
@@ -28,7 +28,7 @@ module flag_i0(
 			cnt_0_valid <= cnt_0_valid;
 	end
 	
-	always @(posedge clk or negedge rst_n )
+	always @(posedge clk or negedge rst_n)
 	begin
 		if(rst_n == 0)
 			cnt_0_number <= 12'b0;
@@ -48,7 +48,7 @@ module flag_i0(
 	wire[12:0] addra = cnt_0_number + cnt_0_valid;
 	reg [12:0] addrb0; reg flag_used;
 	
-	always @(posedge clk or negedge rst_n )
+	always @(posedge clk or negedge rst_n)
 	begin
 		if(rst_n == 0)
 		begin
@@ -79,27 +79,16 @@ module flag_i0(
 	
 	reg [12:0] addrb,addrb1;reg enb0,enb1;
 	
-	always @(posedge clk or negedge rst_n )
+	always @(posedge clk)
 	begin
-		if(rst_n == 0)
-		begin
-			addrb1 <= 13'b0;
-			addrb  <= 13'b0;
-			enb1   <= 0;
-		end	
-		else
-		begin
-			addrb1 <= addrb0;
-			addrb  <= addrb1;
-			enb1   <= enb0;
-		end	
+		addrb1 <= addrb0;
+		addrb  <= addrb1;
+		enb1   <= enb0;
 	end
 		
-	always @(posedge clk or negedge rst_n )
+	always @(posedge clk)
 	begin
-		if(rst_n == 0)
-			enb0 <= 0;
-		else if((1 <= addrb0) && (addrb0< addra))
+		if((1 <= addrb0) && (addrb0< addra))
 			enb0 <= 1;
 		else
 			enb0 <= 0;
@@ -110,15 +99,9 @@ module flag_i0(
 	/********sdjksdfjkjkfskjfskjl**************************/
 	reg [12:0] write_zero_cnt_ji,max_addr_ji; reg write_zero_valid_ji;
 	
-	always @(posedge clk or negedge rst_n )
+	always @(posedge clk)
 	begin
-		if(rst_n == 0)
-		begin
-			write_zero_valid_ji <= 0;
-			max_addr_ji <= 13'd0;
-			write_zero_cnt_ji <= 13'd0;
-		end	
-		else if((1 <= addrb0) && (addrb0 == addra)&&(cnt_ji_ou==1))
+		if((1 <= addrb0) && (addrb0 == addra)&&(cnt_ji_ou==1))
 		begin
 			write_zero_cnt_ji <= 1;
 			max_addr_ji <= addra;
@@ -139,15 +122,9 @@ module flag_i0(
 	end	
 	
 	reg [12:0] write_zero_cnt_ou,max_addr_ou; reg write_zero_valid_ou;
-	always @(posedge clk or negedge rst_n )
+	always @(posedge clk)
 	begin
-		if(rst_n == 0)
-		begin
-			write_zero_valid_ou <= 0;
-			max_addr_ou <= 13'd0;
-			write_zero_cnt_ou <= 13'd0;
-		end	
-		else if((1 <= addrb0) && (addrb0 == addra)&&(cnt_ji_ou==0))
+		if((1 <= addrb0) && (addrb0 == addra)&&(cnt_ji_ou==0))
 		begin
 			write_zero_cnt_ou <= 1;
 			max_addr_ou <= addra;
@@ -168,43 +145,24 @@ module flag_i0(
 	end
 	
 	reg [12:0] write_zero_cnt_ji_d1,write_zero_cnt_ji_d2,write_zero_cnt_ou_d1,write_zero_cnt_ou_d2;
-	always @(posedge clk or negedge rst_n )
+	always @(posedge clk)
 	begin
-		if(rst_n == 0)
-		begin
-			write_zero_cnt_ji_d1 <= 0;
-			write_zero_cnt_ji_d2 <= 0;
-			write_zero_cnt_ou_d1 <= 0;
-			write_zero_cnt_ou_d2 <= 0;
-		end	
-		else
-		begin
-		   write_zero_cnt_ji_d1 <= write_zero_cnt_ji;
-		   write_zero_cnt_ji_d2 <= write_zero_cnt_ji_d1;
-		   write_zero_cnt_ou_d1 <= write_zero_cnt_ou;
-		   write_zero_cnt_ou_d2 <= write_zero_cnt_ou_d1;
-		end
+		write_zero_cnt_ji_d1 <= write_zero_cnt_ji;
+		write_zero_cnt_ji_d2 <= write_zero_cnt_ji_d1;
+		write_zero_cnt_ou_d1 <= write_zero_cnt_ou;
+		write_zero_cnt_ou_d2 <= write_zero_cnt_ou_d1;
 	end
 	
 	reg insert0_flag_valid_d1,insert0_flag_d1; reg [12:0] addra_d1;
-	always @(posedge clk or negedge rst_n )
+	always @(posedge clk)
 	begin
-		if(rst_n == 0)
-		begin
-			insert0_flag_valid_d1 <= 0;
-			insert0_flag_d1       <= 0; 
-			addra_d1              <= 13'd0; 
-		end	
-		else
-		begin
-			insert0_flag_valid_d1 <= insert0_flag_valid;
-			insert0_flag_d1       <= insert0_flag; 
-			addra_d1              <= addra;
-		end	
+		insert0_flag_valid_d1 <= insert0_flag_valid;
+		insert0_flag_d1       <= insert0_flag; 
+		addra_d1              <= addra;
 	end
 	
 	reg cnt_ji_ou;
-	always @(posedge clk or negedge rst_n )
+	always @(posedge clk)
 	begin
 		if(rst_n == 0)
 			cnt_ji_ou <= 0;	
@@ -245,8 +203,7 @@ module flag_i0(
 	  .addra ( mux_addra_ou         ),    
 	  .dina  ( mux_dina_ou          ),    
 			   
-	  .clkb  ( clk                  ),    
-	  .rstb  ( ~rst_n               ),
+	  .clkb  ( clk                  ),
 	  .enb   ( enb_ou               ), 
 	  .addrb ( addrb_ou             ),    
 	  .doutb ( doutb_ou             )     
@@ -259,8 +216,7 @@ module flag_i0(
 	  .addra ( mux_addra_ji        ),    
 	  .dina  ( mux_dina_ji         ),    
 			   
-	  .clkb  ( clk                 ),    
-	  .rstb  ( ~rst_n              ),
+	  .clkb  ( clk                 ),
 	  .enb   ( enb_ji              ), 
 	  .addrb ( addrb_ji            ),    
 	  .doutb ( doutb_ji            )     

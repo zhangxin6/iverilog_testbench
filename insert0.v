@@ -69,15 +69,15 @@ module insert0(
 			in_valid <= 1'b0;
 	end
 	
-	reg [11:0] in_shift;
+	reg [10:0] in_shift;
 	always @(posedge clk or negedge rst_n ) 
 	begin
 		if(rst_n == 0)
-			in_shift <= 12'd0;
+			in_shift <= 11'd0;
 		else if(inr == 1)
-			in_shift <= 12'd0;
+			in_shift <= 11'd0;
 		else
-			in_shift <= {in_shift[10:0],in_valid};
+			in_shift <= {in_shift[9:0],in_valid};
 	end
 	
 	reg [7:0] ramd1,ramd2;
@@ -220,16 +220,9 @@ module insert0(
 		end	
 	end
 	
-	always @(posedge clk or negedge rst_n )
+	always @(posedge clk)
 	begin
-		if(rst_n == 0)
-		begin
-			for(i=0;i<12;i=i+1)
-			begin
-				ram_raddr[i] <= 8'd0;
-			end	
-		end
-		else if(inr == 1)
+		if(inr == 1)
 		begin
 			for(i=0;i<12;i=i+1)
 			begin
@@ -248,34 +241,33 @@ module insert0(
 	
 	reg ram_insert0_rden1,ram_insert0_rden;
 
-	always @(posedge clk or negedge rst_n )
+	always @(posedge clk)
 	begin
-		if(rst_n == 0)
-		begin
-			ram_insert0_rden1 <= 1'b0;
-			ram_insert0_rden  <= 1'b0;
-		end
-		else
-		begin
-			ram_insert0_rden1  <= ram_insert0_rden0;
-			ram_insert0_rden   <= ram_insert0_rden1 | ram_insert0_rden0;
-		end	
+		ram_insert0_rden1  <= ram_insert0_rden0;
+		ram_insert0_rden   <= ram_insert0_rden1 | ram_insert0_rden0;
 	end
 	
 	wire [7:0] ram_insert0_rdata;
+	reg ram_insert0_wren_d1; reg [8:0] ram_insert0_waddr_d1; reg [7:0] ram_insert0_wdata_d1;
+	
+	always @(posedge clk)
+	begin
+		ram_insert0_wren_d1    <= ram_insert0_wren  ;
+		ram_insert0_waddr_d1   <= ram_insert0_waddr ;
+		ram_insert0_wdata_d1   <= ram_insert0_wdata ;
+	end
 	
 	insert0_ram u_insert0_ram (
-	  .clka  ( clk                     ),      // input wire clka
-	  .ena   ( ram_insert0_wren        ),      // input wire [0 : 0] ena
-	  .wea   ( 1'b1                    ),      // input wire [0 : 0] wea
-	  .addra ( ram_insert0_waddr       ),      // input wire [8 : 0] addra
-	  .dina  ( ram_insert0_wdata       ),      // input wire [7: 0] dina
+	  .clka  ( clk                        ),      // input wire clka
+	  .ena   ( ram_insert0_wren_d1        ),      // input wire [0 : 0] ena
+	  .wea   ( 1'b1                       ),      // input wire [0 : 0] wea
+	  .addra ( ram_insert0_waddr_d1       ),      // input wire [8 : 0] addra
+	  .dina  ( ram_insert0_wdata_d1       ),      // input wire [7: 0] dina
 			   
-	  .clkb  ( clk                     ),      // input wire clkb
-	  .rstb  ( ~rst_n                  ),
-	  .enb   ( ram_insert0_rden        ), 
-	  .addrb ( ram_raddr2              ),      // input wire [7 : 0] addrb0
-	  .doutb ( ram_insert0_rdata       )       // output wire [15 : 0] doutb
+	  .clkb  ( clk                        ),      // input wire clkb
+	  .enb   ( ram_insert0_rden           ), 
+	  .addrb ( ram_raddr2                 ),      // input wire [7 : 0] addrb0
+	  .doutb ( ram_insert0_rdata          )       // output wire [15 : 0] doutb
 	);
 	
 	wire out_valid = (ram_raddr2 > 0 ) && (ram_raddr2 <=db);

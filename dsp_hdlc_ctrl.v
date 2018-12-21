@@ -17,7 +17,9 @@ module dsp_hdlc_ctrl ( clk_100m, clk, rst_n, emif_dpram_wen, emif_dpram_addr, em
 	parameter  ADDR_TX_START = 24'd255;
 	parameter  TR_FLAG_WIDTH = 10'd84;    //比4个7E的长度64多一些即可
 	
-	reg start; reg [9:0] cnt_start;
+	reg start; 
+	
+	(* dont_touch = "yes" *) reg [9:0] cnt_start;
 	always @(posedge clk_100m or negedge rst_n)
 	begin
 		if(rst_n==0)
@@ -29,12 +31,12 @@ module dsp_hdlc_ctrl ( clk_100m, clk, rst_n, emif_dpram_wen, emif_dpram_addr, em
 		else if((emif_dpram_wen == 1) && (emif_dpram_addr==ADDR_TX_START) )
 		begin
 			db <= emif_data[9:0];
-		    start <= 1;
+		    start <= 0;
 			cnt_start   <= 10'd1;			
 		end
-		else if((0 < cnt_start) && (cnt_start < 10'd500))  //500是让串口一定采集到
+		else if( (cnt_start > 0) && (cnt_start < 10'd500) )
 		begin	
-			cnt_start <= cnt_start + 10'd1;
+			cnt_start <= cnt_start + 10'd1;			
 			start <= 1;
 			db <= db;
 		end		
@@ -130,8 +132,9 @@ module dsp_hdlc_ctrl ( clk_100m, clk, rst_n, emif_dpram_wen, emif_dpram_addr, em
 		if (rst_n ==0)
 			cnt_trans_start <= 0;
 		else if(start_pos==1)
-			cnt_trans_start<=10'd1;
-		else if( (0 < cnt_trans_start) && (cnt_trans_start < TR_FLAG_WIDTH))
+			cnt_trans_start<=10'd2;
+		//else if( cnt_trans_start < TR_FLAG_WIDTH)
+		else if( (1 < cnt_trans_start) && (cnt_trans_start < TR_FLAG_WIDTH))
 			cnt_trans_start <= cnt_trans_start + 10'd1;
 		else
 			cnt_trans_start <= cnt_trans_start;		
@@ -141,7 +144,7 @@ module dsp_hdlc_ctrl ( clk_100m, clk, rst_n, emif_dpram_wen, emif_dpram_addr, em
 	begin
 		if (rst_n ==0)
 			trastart_flag <= 0;
-		else if((10'd9 <= cnt_trans_start) && (cnt_trans_start < TR_FLAG_WIDTH ))
+		else if((10'd10 <= cnt_trans_start) && (cnt_trans_start < TR_FLAG_WIDTH ))
 			trastart_flag <= 1;
 		else
 			trastart_flag <= 0;		
@@ -149,27 +152,16 @@ module dsp_hdlc_ctrl ( clk_100m, clk, rst_n, emif_dpram_wen, emif_dpram_addr, em
 		
 	// 拓宽读使能宽度
 	reg rden1, rden2_2; reg [9:0] bytes1, bytes2, bytes3;
-	always @(posedge clk or negedge rst_n)
+
+	always @(posedge clk)
 	begin
-		if(rst_n==0)
-		begin
-			rden1   <= 0; 
-			rden2_2 <= 0;
-			bytes1  <= 0;
-			bytes2  <= 0;
-			bytes3  <= 0;
-		end
-		else
-		begin
-			rden1 <= rden; 
-			rden2_2 <= rden | rden1;
-			bytes1  <= bytes;
-			bytes2  <= bytes1;
-			bytes3  <= bytes2;
-		end		
+		rden1 <= rden; 
+		rden2_2 <= rden | rden1;
+		bytes1  <= bytes;
+		bytes2  <= bytes1;
+		bytes3  <= bytes2;	
 	end
-	
-	
+		
 	wire  [7:0] doutb;
 	hdlc_tx_ram u_hdlc_tx_ram (
 	  .clka  ( clk_100m                ),      // input wire clka
@@ -179,7 +171,6 @@ module dsp_hdlc_ctrl ( clk_100m, clk, rst_n, emif_dpram_wen, emif_dpram_addr, em
 	  .dina  ( emif_data               ),      // input wire [15 : 0] dina
 			   
 	  .clkb  ( clk                     ),      // input wire clkb
-	  .rstb  (  ~rst_n                 ),
 	  .enb   ( rden2_2                 ), 
 	  .addrb ( bytes3[8:0]             ),      // input wire [8 : 0] addrb
 	  .doutb ( doutb                   )       // output wire [7 : 0] doutb
@@ -187,17 +178,17 @@ module dsp_hdlc_ctrl ( clk_100m, clk, rst_n, emif_dpram_wen, emif_dpram_addr, em
 
 	assign ramd = doutb; 
 	
-	`ifdef DEBUG
+	`ifdef DEBUG1
 		ila_8_16384_1120  uctrl_ila_8_16384_1120 (
-			.clk    ( clk_100m                         ), 
-			.probe0 ( {clk,start}                    ),
-			.probe1 ( start_pos      ),
-			.probe2 ( cnt_8                      ),
-			.probe3 ( rden2_2        ),
-			.probe4 (  8'b0                           ),
-			.probe5 (  ramd                           ),
-			.probe6 (  cnt_trans_start               ),
-			.probe7 ( bytes3                 )
+			.clk    ( clk_100m                     ), 
+			.probe0 ( {clk,start}                  ),
+			.probe1 ( {start_pos,emif_dpram_wen}   ),
+			.probe2 ( cnt_8                        ),
+			.probe3 ( {rden2_2,3'b0}               ),
+			.probe4 (  cnt_start[7:0]              ),
+			.probe5 (  emif_dpram_addr[7:0]        ),
+			.probe6 (  {cnt_trans_start,6'b0}      ),
+			.probe7 ( {bytes3,22'b0}               )
 		);
 	`endif	
 	

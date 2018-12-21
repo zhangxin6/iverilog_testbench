@@ -84,8 +84,7 @@ module hdlcrev_testbench(
     end
 
 	hdlcrev u_hdlcrev(
-		 . rst_n             ( rst_n             ),      //         复位，低有效    
-		 . ra                ( 8'd0              ),      //[7:0]    本站地址，本模块没有用                         
+		 . rst_n             ( rst_n             ),      //         复位，低有效                          
 		 . clkr              ( clk               ),      //         串口时钟                       
 		 . datar             ( datar             ),      //         数据                           
 		 . flagr             ( flagr             ),      //         接收触发信号  

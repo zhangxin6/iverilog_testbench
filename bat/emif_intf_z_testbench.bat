@@ -12,7 +12,6 @@ set batdir=C:\Users\zhang\iverilog_testbench\bat
 set s1=%dir%\emif_intf_z_testbench.v
 set s2=%dir%\emif_intf_z.v
 
-
 set vivado_dir=C:\Xilinx\Vivado\2015.1\data\verilog\src
 set vivado_lib="-y%vivado_dir%" "-y%vivado_dir%\retarget" "-y%vivado_dir%\unifast" "-y%vivado_dir%\unimacro" "-y%vivado_dir%\unisims" "-y%vivado_dir%\xeclib"
 

@@ -1,15 +1,15 @@
 [*]
 [*] GTKWave Analyzer v3.3.71 (w)1999-2016 BSI
-[*] Tue Nov 06 10:05:29 2018
+[*] Tue Dec 18 06:44:08 2018
 [*]
-[dumpfile] "D:\iverilog_sim\hdlc_verilog\hdlcrev.v\hdlcrev_testbench.vcd"
-[dumpfile_mtime] "Tue Nov 06 10:03:16 2018"
-[dumpfile_size] 818513
-[savefile] "D:\iverilog_sim\hdlc_verilog\hdlcrev.v\hdlcrev_testbench.gtkw"
-[timestart] 82915800
+[dumpfile] "C:\Users\zhang\iverilog_testbench\bat\hdlcrev_testbench.vcd"
+[dumpfile_mtime] "Tue Dec 18 06:42:49 2018"
+[dumpfile_size] 852460
+[savefile] "C:\Users\zhang\iverilog_testbench\bat\hdlcrev_testbench.gtkw"
+[timestart] 82894600
 [size] 1920 1017
 [pos] -1 -1
-*-16.716158 83248000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+*-16.345558 83126300 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] hdlcrev_testbench.
 [sst_width] 197
 [signals_width] 441
@@ -19,11 +19,9 @@
 hdlcrev_testbench.datar
 hdlcrev_testbench.flagr
 hdlcrev_testbench.u_hdlcrev.bytes_flag
-hdlcrev_testbench.u_hdlcrev.clkr
 hdlcrev_testbench.u_hdlcrev.count[2:0]
 hdlcrev_testbench.u_hdlcrev.crcwr_flag
 hdlcrev_testbench.u_hdlcrev.datar
-hdlcrev_testbench.u_hdlcrev.datavalid
 hdlcrev_testbench.u_hdlcrev.flag1
 hdlcrev_testbench.u_hdlcrev.flagr
 hdlcrev_testbench.u_hdlcrev.hwr
@@ -31,8 +29,6 @@ hdlcrev_testbench.u_hdlcrev.inr
 hdlcrev_testbench.u_hdlcrev.newbyte_buf
 hdlcrev_testbench.u_hdlcrev.newbytes_flag1
 @22
-hdlcrev_testbench.u_hdlcrev.ra[7:0]
-hdlcrev_testbench.u_hdlcrev.ramd[7:0]
 hdlcrev_testbench.u_hdlcrev.rec_buf[7:0]
 hdlcrev_testbench.u_hdlcrev.rec_buf_judge[4:0]
 hdlcrev_testbench.u_hdlcrev.rec_crc_buf1[7:0]
@@ -48,22 +44,26 @@ hdlcrev_testbench.u_hdlcrev.wait_count[4:0]
 hdlcrev_testbench.u_hdlcrev.waitnum[4:0]
 @28
 hdlcrev_testbench.u_hdlcrev.clear
-@22
-hdlcrev_testbench.u_hdlcrev.cnt_last_write[7:0]
-@28
 hdlcrev_testbench.clk
-@22
-hdlcrev_testbench.u_hdlcrev.rama[8:0]
-@29
-hdlcrev_testbench.hwr
 @24
 hdlcrev_testbench.ramd[7:0]
 hdlcrev_testbench.u_hdlcrev.bytes[8:0]
-@22
-hdlcrev_testbench.u_hdlcrev.cnt_last_write[7:0]
 @28
-hdlcrev_testbench.u_hdlcrev.last_wren1
-hdlcrev_testbench.u_hdlcrev.last_wren2
 hdlcrev_testbench.rst_n
+[color] 2
+hdlcrev_testbench.u_hdlcrev.interrupt
+@23
+[color] 2
+hdlcrev_testbench.u_hdlcrev.rama[8:0]
+@22
+[color] 2
+hdlcrev_testbench.u_hdlcrev.ramd[7:0]
+@28
+[color] 2
+hdlcrev_testbench.hwr
+[color] 2
+hdlcrev_testbench.u_hdlcrev.clkr
+hdlcrev_testbench.u_hdlcrev.last_wren_first
+hdlcrev_testbench.u_hdlcrev.last_wren_second
 [pattern_trace] 1
 [pattern_trace] 0

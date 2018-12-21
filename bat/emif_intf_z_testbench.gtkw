@@ -1,46 +1,53 @@
 [*]
 [*] GTKWave Analyzer v3.3.71 (w)1999-2016 BSI
-[*] Thu Nov 29 06:00:59 2018
+[*] Tue Dec 18 11:15:19 2018
 [*]
 [dumpfile] "C:\Users\zhang\iverilog_testbench\bat\emif_intf_z_testbench.vcd"
-[dumpfile_mtime] "Thu Nov 29 05:58:40 2018"
-[dumpfile_size] 18795
+[dumpfile_mtime] "Tue Dec 18 11:14:29 2018"
+[dumpfile_size] 40357
 [savefile] "C:\Users\zhang\iverilog_testbench\bat\emif_intf_z_testbench.gtkw"
-[timestart] 202800
-[size] 1920 1057
-[pos] -1 -1
-*-15.360155 246000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[timestart] 1071000
+[size] 958 1048
+[pos] 744 -1
+*-18.766983 1458000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] emif_intf_z_testbench.
 [sst_width] 197
-[signals_width] 430
+[signals_width] 271
 [sst_expanded] 1
-[sst_vpaned_height] 314
+[sst_vpaned_height] 311
 @28
+emif_intf_z_testbench.emif_dpram_ren
+@24
+emif_intf_z_testbench.emif_dpram_addr[23:0]
+@23
+[color] 3
+emif_intf_z_testbench.emif_dpram_wdata[15:0]
+@28
+[color] 3
+emif_intf_z_testbench.emif_dpram_wen
 emif_intf_z_testbench.clk
+emif_intf_z_testbench.rst_n
 @22
+[color] 2
 emif_intf_z_testbench.emif_addr_i[23:0]
-@800028
+@28
+[color] 2
+emif_intf_z_testbench.emif_oen_i
+@22
+[color] 2
+emif_intf_z_testbench.emif_data_i[15:0]
+@28
+[color] 2
+emif_intf_z_testbench.emif_wen_i
+[color] 2
+emif_intf_z_testbench.emif_cen_i
+@c00028
+[color] 2
 emif_intf_z_testbench.emif_byten_i[1:0]
 @28
 (0)emif_intf_z_testbench.emif_byten_i[1:0]
 (1)emif_intf_z_testbench.emif_byten_i[1:0]
-@1001200
+@1401200
 -group_end
-@28
-emif_intf_z_testbench.emif_wen_i
-emif_intf_z_testbench.emif_cen_i
-@22
-emif_intf_z_testbench.emif_data_z[15:0]
-@28
-emif_intf_z_testbench.emif_oen_i
-emif_intf_z_testbench.rst_n
-emif_intf_z_testbench.u_emif_intf_z.emif_dpram_wen
-@29
-[color] 2
-emif_intf_z_testbench.u_emif_intf_z.emif_wen_d1
-[color] 2
-emif_intf_z_testbench.u_emif_intf_z.emif_wen_d2
-@28
-emif_intf_z_testbench.u_emif_intf_z.emif_cen_d1
 [pattern_trace] 1
 [pattern_trace] 0

@@ -11,9 +11,10 @@ module hdlcrev(rst_n , clkr, datar, flagr, ramd, rama, hwr, interrupt);
 	output reg         interrupt;                  // 接收完成中断信号
 
 	parameter  [2:0]   HDLC_TYPE_REC_FLAG = 0,HDLC_TYPE_REC_WAIT = 1,HDLC_TYPE_REC_DATA = 2,HDLC_TYPE_REC_OVER = 3,HDLC_TYPE_REC_CLEAR = 4;
-	parameter          ADDR_LENGH_REC = 12'd511;
+	parameter  ADDR_LENGH_REC1 = 9'd510; parameter ADDR_LENGH_REC2 = 9'd511;
+	 
 
-	reg               syncflag3,flag1,clear; reg [15:0] wait_buf; reg [6: 0] rec_flag_buf;
+	reg syncflag3,flag1,clear; reg [15:0] wait_buf; reg [6: 0] rec_flag_buf;
 
 	always @(negedge rst_n or negedge clkr )
 	begin
@@ -265,24 +266,28 @@ module hdlcrev(rst_n , clkr, datar, flagr, ramd, rama, hwr, interrupt);
 			clear <= 0;
 	end
 
-	reg last_wren;
+	reg last_wren_first;
 	always @(negedge rst_n or negedge clkr)
 	begin
 		if (rst_n == 1'b0)
-			last_wren <= 0;
+			last_wren_first <= 0;
 		else if(cnt_last_write == 6'd6)
-			last_wren <= 1;
+			last_wren_first <= 1;
 		else
-			last_wren <= 0;
+			last_wren_first <= 0;
 	end
 	
+	reg last_wren_second;
 	always @(negedge rst_n or negedge clkr)
 	begin
 		if (rst_n == 1'b0)
-			interrupt <= 1'd0;
+			last_wren_second <= 0;
+		else if(cnt_last_write == 6'd14)
+			last_wren_second <= 1;
 		else
-			interrupt <= last_wren;
-	end
+			last_wren_second <= 0;
+	end	
+
 	
 	/********************ila2********************/
 /* 		ila_4  u_ila_4 (
@@ -299,28 +304,55 @@ module hdlcrev(rst_n , clkr, datar, flagr, ramd, rama, hwr, interrupt);
 		.probe9 ( wait_buf               ),  // input wire [15:0]  probe4
 		.probe10( hwr                    )   // input wire [00:0]  probe4
 	);  */
-	assign inr = crcwr_flag;
+	reg [7:0] ramd1,ramd2;          
+	reg [8:0] rama1,rama2;            
+	reg hwr1,hwr2,interrupt1,interrupt2; 
 	
-	always @(negedge rst_n or posedge clkr)
+	
+	always @(negedge rst_n or negedge clkr)
+	begin
+		if (rst_n == 1'b0)
+			interrupt1 <= 1'd0;
+		else
+			interrupt1 <= last_wren_second;
+	end
+	
+	always @(negedge rst_n or negedge clkr)
 	begin
 		if (rst_n == 1'b0)
 		begin
-			rama <= 9'd0;
-			ramd <= 8'd0;
-			hwr  <= 1'b0;
+			rama1 <= 9'd0;
+			ramd1 <= 8'd0;
+			hwr1  <= 1'b0;
 		end
-		else if(last_wren==1)
+		else if(last_wren_first==1)
 		begin
-			rama <= ADDR_LENGH_REC;
-			ramd <= bytes;  
-			hwr  <= 1'b1;
-		end	
+			rama1 <= ADDR_LENGH_REC1;
+			ramd1 <= bytes[7:0];  
+			hwr1  <= 1'b1;
+		end
+		else if(last_wren_second==1)
+		begin
+			rama1 <= ADDR_LENGH_REC2;
+			ramd1 <= bytes[8];  
+			hwr1  <= 1'b1;
+		end		
 		else
 		begin
-			rama <= bytes;
-			ramd <= ramd0;
-			hwr <=  newbytes_flag1;
+			rama1 <= bytes;
+			ramd1 <= ramd0;
+			hwr1 <=  newbytes_flag1;
 		end	
 	end
-		
+	
+	//跨时钟域	
+	always @(posedge clkr)
+	begin
+		interrupt2  <= interrupt1;  interrupt  <= interrupt2;
+		rama2       <= rama1     ;  rama       <= rama2     ;
+		ramd2       <= ramd1     ;  ramd       <= ramd2     ;
+		hwr2        <= hwr1      ;  hwr        <= hwr2      ;
+	end
+	
+	assign inr = crcwr_flag;	
 endmodule
