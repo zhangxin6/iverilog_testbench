@@ -1,7 +1,9 @@
 `timescale 1 ns / 1 ns
+`define DEBUG
 
-module hdlcrev(rst_n , clkr, datar, flagr, ramd, rama, hwr, interrupt);
+module hdlcrev(rst_n , clk_100m, clkr, datar, flagr, ramd, rama, hwr, interrupt);
 	input              rst_n;                // 复位，低有效
+	input              clk_100m;
 	input              clkr;                 // 接收数据时钟
 	input              datar;                // 数据
 	input              flagr;                // 接收开始信号
@@ -16,7 +18,7 @@ module hdlcrev(rst_n , clkr, datar, flagr, ramd, rama, hwr, interrupt);
 
 	reg syncflag3,flag1,clear; reg [15:0] wait_buf; reg [6: 0] rec_flag_buf;
 
-	always @(negedge rst_n or negedge clkr )
+	always @(negedge rst_n or posedge clkr )
 	begin
 		if ( (rst_n == 1'b0))
 		begin
@@ -43,7 +45,7 @@ module hdlcrev(rst_n , clkr, datar, flagr, ramd, rama, hwr, interrupt);
 	reg  [2:0 ]  current_state; reg  [7:0 ]   rec_buf; reg  [2:0 ] count;  reg newbyte_buf,bytes_flag,crcwr_flag;
 	reg  [4:0 ]  waitnum; reg  [15:0]  rec_crc_buf; reg  [4:0 ]  wait_count; reg  [4: 0]  rec_buf_judge; reg  [7 :0]  ramd0;
 
-	always @(negedge rst_n or negedge clkr)
+	always @(negedge rst_n or posedge clkr)
 	begin
 		if ( rst_n == 1'b0 )
 		begin
@@ -174,7 +176,7 @@ module hdlcrev(rst_n , clkr, datar, flagr, ramd, rama, hwr, interrupt);
 
 	reg newbytes_flag1;
 
-	always @(negedge rst_n or negedge clkr)
+	always @(negedge rst_n or posedge clkr)
 	begin
 		if ( rst_n == 1'b0 )
 			newbytes_flag1 <= 1'b0;
@@ -186,7 +188,7 @@ module hdlcrev(rst_n , clkr, datar, flagr, ramd, rama, hwr, interrupt);
 
 	reg   [8:0] bytes;
 
-	always @(negedge rst_n or negedge clkr)
+	always @(negedge rst_n or posedge clkr)
 	begin
 		if (rst_n == 1'b0)
 			bytes <= 12'b000000000000;
@@ -205,7 +207,7 @@ module hdlcrev(rst_n , clkr, datar, flagr, ramd, rama, hwr, interrupt);
 
 	reg [7: 0] rec_crc_buf1,rec_crc_buf2;
 
-	always @(negedge rst_n or negedge clkr)
+	always @(negedge rst_n or posedge clkr)
 	begin: crc_pd_gen
 		if ( rst_n == 1'b0 )
 		begin
@@ -231,7 +233,7 @@ module hdlcrev(rst_n , clkr, datar, flagr, ramd, rama, hwr, interrupt);
 	end
 	/***********数据接收完后，写入一个数据个数******************/
 	reg inr1,inr_neg;
-	always @(negedge rst_n or negedge clkr)
+	always @(negedge rst_n or posedge clkr)
 	begin
 		if (rst_n == 1'b0)
 		begin
@@ -244,7 +246,7 @@ module hdlcrev(rst_n , clkr, datar, flagr, ramd, rama, hwr, interrupt);
 	end
 
 	reg [5:0] cnt_last_write;
-	always @(negedge rst_n or negedge clkr)
+	always @(negedge rst_n or posedge clkr)
 	begin
 		if (rst_n == 1'b0)
 			cnt_last_write <= 6'd0;
@@ -256,7 +258,7 @@ module hdlcrev(rst_n , clkr, datar, flagr, ramd, rama, hwr, interrupt);
 			cnt_last_write <= 6'd0;
 	end
 
-	always @(negedge rst_n or negedge clkr)
+	always @(negedge rst_n or posedge clkr)
 	begin
 		if (rst_n == 1'b0)
 			clear <= 0;
@@ -267,7 +269,7 @@ module hdlcrev(rst_n , clkr, datar, flagr, ramd, rama, hwr, interrupt);
 	end
 
 	reg last_wren_first;
-	always @(negedge rst_n or negedge clkr)
+	always @(negedge rst_n or posedge clkr)
 	begin
 		if (rst_n == 1'b0)
 			last_wren_first <= 0;
@@ -278,7 +280,7 @@ module hdlcrev(rst_n , clkr, datar, flagr, ramd, rama, hwr, interrupt);
 	end
 	
 	reg last_wren_second;
-	always @(negedge rst_n or negedge clkr)
+	always @(negedge rst_n or posedge clkr)
 	begin
 		if (rst_n == 1'b0)
 			last_wren_second <= 0;
@@ -288,6 +290,21 @@ module hdlcrev(rst_n , clkr, datar, flagr, ramd, rama, hwr, interrupt);
 			last_wren_second <= 0;
 	end	
 
+	
+	`ifdef DEBUG
+		ila_8_16384_1120  h_ila_8_16384_1120 (
+			.clk    ( clk_100m                      ), 
+			.probe0 ( {datar,clkr}                  ),      
+			.probe1 ( {syncflag3,flagr}             ),      
+			.probe2 ( current_state                 ),       
+			.probe3 ( 4'b0                          ),       
+			.probe4 ( wait_count                    ),       
+			.probe5 ( rec_flag_buf                  ),        
+			.probe6 ( {inr_neg,cnt_last_write,crcwr_flag,interrupt} ),        
+			.probe7 ( 32'b0                         )
+		);
+	`endif
+	
 	
 	/********************ila2********************/
 /* 		ila_4  u_ila_4 (
@@ -309,7 +326,7 @@ module hdlcrev(rst_n , clkr, datar, flagr, ramd, rama, hwr, interrupt);
 	reg hwr1,hwr2,interrupt1,interrupt2; 
 	
 	
-	always @(negedge rst_n or negedge clkr)
+	always @(negedge rst_n or posedge clkr)
 	begin
 		if (rst_n == 1'b0)
 			interrupt1 <= 1'd0;
@@ -317,7 +334,7 @@ module hdlcrev(rst_n , clkr, datar, flagr, ramd, rama, hwr, interrupt);
 			interrupt1 <= last_wren_second;
 	end
 	
-	always @(negedge rst_n or negedge clkr)
+	always @(negedge rst_n or posedge clkr)
 	begin
 		if (rst_n == 1'b0)
 		begin

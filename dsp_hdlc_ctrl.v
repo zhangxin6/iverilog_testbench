@@ -1,5 +1,5 @@
 `timescale 1 ns / 1 ns
-`define DEBUG
+//`define DEBUG
 
 module dsp_hdlc_ctrl ( clk_100m, clk, rst_n, emif_dpram_wen, emif_dpram_addr, emif_data, trastart_flag, db, ramd);
 	input                 clk_100m;          
