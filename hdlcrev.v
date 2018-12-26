@@ -291,7 +291,7 @@ module hdlcrev(rst_n , clk_100m, clkr, datar, flagr, ramd, rama, hwr, interrupt)
 	end	
 
 	
-	`ifdef DEBUG
+	`ifdef DEBUG1
 		ila_8_16384_1120  h_ila_8_16384_1120 (
 			.clk    ( clk_100m                      ), 
 			.probe0 ( {datar,clkr}                  ),      

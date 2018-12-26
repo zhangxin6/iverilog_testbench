@@ -1,4 +1,5 @@
 `timescale 1ns/1ps
+`define DEBUG
 
 (* DONT_TOUCH = "yes" *)
 module  emif_intf_z(
@@ -100,7 +101,7 @@ module  emif_intf_z(
 		emif_dpram_wdata <= emif_dpram_wdata0 ;
 	end		
 
-	`ifdef DEBUG1
+	`ifdef DEBUG
 		ila_8_16384_1120  emif_ila_8_16384_1120 (
 			.clk    ( clk_100m         ), 
 			.probe0 (emif_byten_i             ),
