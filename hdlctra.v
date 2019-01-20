@@ -1,11 +1,11 @@
 module hdlctra(clk, rst_n, trastart_flag, db, ramd, datat, inr);
-	input                clk;                // 串口发送时钟
-	input                rst_n ;              // 复位，低有效
-	input                trastart_flag;      // 发送出发脉冲，高脉冲，至少一个clkt宽度
-	input      [9:0]     db;                 // 1帧发送字节数
-	input      [7:0]     ramd;               // 发送缓存区接口数据信号
-	output reg           datat;              // 串口DATA
-	output reg           inr;                // 发送完成中断输出
+	input                clk;               
+	input                rst_n ;            
+	input                trastart_flag;     
+	input      [9:0]     db;                
+	input      [7:0]     ramd;              
+	output reg           datat;             
+	output reg           inr;               
 	
 	parameter [2:0]  TRA_FLAG = 0,TRA_DATA = 1,TRA_CRC = 2,TRA_FLAGEND = 3,TRA_CLEAR = 4;
 	integer i;

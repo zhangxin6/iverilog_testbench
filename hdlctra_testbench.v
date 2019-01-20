@@ -27,76 +27,14 @@ module hdlctra_testbench(
 		trastart_flag = 1;   
 		
 		#4
-		for (i=0;i<125;i=i+1)
-		begin
-			ramd = 8'hFF;#16;
-			ramd = 8'hFF;#16;
-			ramd = 8'hFF;#16;
-			ramd = 8'hFF;#16;
-		end	 
 		ramd = 8'hFF;#16;
 		ramd = 8'h55;#16;
  		ramd = 8'hFF;#16;
 		ramd = 8'hAA;#16;
 		trastart_flag = 0;
 		/************sdjkdsjksdjk****************/
-		#6000
-		trastart_flag = 1;   
-		
-		#4
-		for (i=0;i<125;i=i+1)
-		begin
-			ramd = 8'hFF;#16;
-			ramd = 8'hFF;#16;
-			ramd = 8'hFF;#16;
-			ramd = 8'hFF;#16;
-		end	 
-		ramd = 8'hFF;#16;
-		ramd = 8'h55;#16;
- 		ramd = 8'hFF;#16;
-		ramd = 8'hAA;#16;
-		trastart_flag = 0;
-		/************sdjkdsjksdjk****************/
-		#6000
-		trastart_flag = 1;   
-		
-		#4
-		for (i=0;i<125;i=i+1)
-		begin
-			ramd = 8'hFF;#16;
-			ramd = 8'hFF;#16;
-			ramd = 8'hFF;#16;
-			ramd = 8'hFF;#16;
-		end	 
-		ramd = 8'hFF;#16;
-		ramd = 8'h55;#16;
- 		ramd = 8'hFF;#16;
-		ramd = 8'hAA;#16;
-		trastart_flag = 0;
-		/************sdjkdsjksdjk****************/
-		#6000
-		trastart_flag = 1;   
-		
-		#4
-		for (i=0;i<125;i=i+1)
-		begin
-			ramd = 8'hFF;#16;
-			ramd = 8'hFF;#16;
-			ramd = 8'hFF;#16;
-			ramd = 8'hFF;#16;
-		end	 
-		ramd = 8'hFF;#16;
-		ramd = 8'h55;#16;
- 		ramd = 8'hFF;#16;
-		ramd = 8'hAA;#16;
-		trastart_flag = 0;
 		
 	    #8000
-		
-		
-		
-		
-		
 		
 		$finish;	
     end
@@ -112,7 +50,7 @@ module hdlctra_testbench(
 		 .clk              ( clk             ),    //       
 		 .rst_n            ( rst_n           ),    //       复位，低有效
 		 .trastart_flag    ( trastart_flag   ),    //       发送出发脉冲，高脉冲，至少一个clkt宽度
-		 .db               ( 10'd504           ),    // [7:0] 1帧发送字节数
+		 .db               ( 10'd4           ),    // [7:0] 1帧发送字节数
 		 .ramd             ( ramd            ),    // [7:0] 发送缓存区接口数据信号 		 
 		 .datat            ( datat           ),    //       串口DATA
 		 .inr              ( inr             )     //       发送完成中断输出

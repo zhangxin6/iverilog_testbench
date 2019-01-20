@@ -1,0 +1,152 @@
+[*]
+[*] GTKWave Analyzer v3.3.71 (w)1999-2016 BSI
+[*] Sun Jan 20 08:49:46 2019
+[*]
+[dumpfile] "C:\Users\zhang\iverilog_testbench\bat\file_io_testbench.vcd"
+[dumpfile_mtime] "Sun Jan 20 08:10:47 2019"
+[dumpfile_size] 3797087
+[savefile] "C:\Users\zhang\iverilog_testbench\bat\file_io_testbench.gtkw"
+[timestart] 0
+[size] 1920 1057
+[pos] -113 -113
+*-19.878649 1272000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] file_io_testbench.
+[sst_width] 197
+[signals_width] 232
+[sst_expanded] 1
+[sst_vpaned_height] 314
+@24
+[color] 4
+file_io_testbench.u_connect_domain_get.valid
+[color] 4
+file_io_testbench.u_connect_domain_get.start
+[color] 4
+file_io_testbench.u_connect_domain_get.export_valid
+[color] 4
+file_io_testbench.u_connect_domain_get.hang_cnt[10:0]
+[color] 4
+file_io_testbench.u_connect_domain_get.lie_cnt[10:0]
+[color] 4
+file_io_testbench.u_connect_domain_get.middle[7:0]
+@28
+[color] 5
+file_io_testbench.u_connect_domain_get.hs
+[color] 5
+file_io_testbench.u_connect_domain_get.fs
+@24
+[color] 5
+file_io_testbench.u_connect_domain_get.cnt_write[9:0]
+[color] 5
+file_io_testbench.u_connect_domain_get.e_label[9:0]
+[color] 2
+file_io_testbench.u_connect_domain_get.e_upm[8:0]
+[color] 2
+file_io_testbench.u_connect_domain_get.e_dw[8:0]
+[color] 2
+file_io_testbench.u_connect_domain_get.e_le[8:0]
+[color] 2
+file_io_testbench.u_connect_domain_get.e_ri[8:0]
+[color] 3
+file_io_testbench.u_connect_domain_get.e_num_gray[19:0]
+[color] 3
+file_io_testbench.u_connect_domain_get.e_sum_gray[31:0]
+[color] 5
+file_io_testbench.u_connect_domain_get.label1[9:0]
+[color] 5
+file_io_testbench.u_connect_domain_get.upm1[8:0]
+[color] 5
+file_io_testbench.u_connect_domain_get.dw1[8:0]
+[color] 5
+file_io_testbench.u_connect_domain_get.le1[8:0]
+[color] 5
+file_io_testbench.u_connect_domain_get.ri1[8:0]
+@25
+[color] 5
+file_io_testbench.u_connect_domain_get.num_gray1[19:0]
+@c00024
+[color] 5
+file_io_testbench.u_connect_domain_get.sum_gray1[31:0]
+@28
+[color] 5
+(0)file_io_testbench.u_connect_domain_get.sum_gray1[31:0]
+[color] 5
+(1)file_io_testbench.u_connect_domain_get.sum_gray1[31:0]
+[color] 5
+(2)file_io_testbench.u_connect_domain_get.sum_gray1[31:0]
+[color] 5
+(3)file_io_testbench.u_connect_domain_get.sum_gray1[31:0]
+[color] 5
+(4)file_io_testbench.u_connect_domain_get.sum_gray1[31:0]
+[color] 5
+(5)file_io_testbench.u_connect_domain_get.sum_gray1[31:0]
+[color] 5
+(6)file_io_testbench.u_connect_domain_get.sum_gray1[31:0]
+[color] 5
+(7)file_io_testbench.u_connect_domain_get.sum_gray1[31:0]
+[color] 5
+(8)file_io_testbench.u_connect_domain_get.sum_gray1[31:0]
+[color] 5
+(9)file_io_testbench.u_connect_domain_get.sum_gray1[31:0]
+[color] 5
+(10)file_io_testbench.u_connect_domain_get.sum_gray1[31:0]
+[color] 5
+(11)file_io_testbench.u_connect_domain_get.sum_gray1[31:0]
+[color] 5
+(12)file_io_testbench.u_connect_domain_get.sum_gray1[31:0]
+[color] 5
+(13)file_io_testbench.u_connect_domain_get.sum_gray1[31:0]
+[color] 5
+(14)file_io_testbench.u_connect_domain_get.sum_gray1[31:0]
+[color] 5
+(15)file_io_testbench.u_connect_domain_get.sum_gray1[31:0]
+[color] 5
+(16)file_io_testbench.u_connect_domain_get.sum_gray1[31:0]
+[color] 5
+(17)file_io_testbench.u_connect_domain_get.sum_gray1[31:0]
+[color] 5
+(18)file_io_testbench.u_connect_domain_get.sum_gray1[31:0]
+[color] 5
+(19)file_io_testbench.u_connect_domain_get.sum_gray1[31:0]
+[color] 5
+(20)file_io_testbench.u_connect_domain_get.sum_gray1[31:0]
+[color] 5
+(21)file_io_testbench.u_connect_domain_get.sum_gray1[31:0]
+[color] 5
+(22)file_io_testbench.u_connect_domain_get.sum_gray1[31:0]
+[color] 5
+(23)file_io_testbench.u_connect_domain_get.sum_gray1[31:0]
+[color] 5
+(24)file_io_testbench.u_connect_domain_get.sum_gray1[31:0]
+[color] 5
+(25)file_io_testbench.u_connect_domain_get.sum_gray1[31:0]
+[color] 5
+(26)file_io_testbench.u_connect_domain_get.sum_gray1[31:0]
+[color] 5
+(27)file_io_testbench.u_connect_domain_get.sum_gray1[31:0]
+[color] 5
+(28)file_io_testbench.u_connect_domain_get.sum_gray1[31:0]
+[color] 5
+(29)file_io_testbench.u_connect_domain_get.sum_gray1[31:0]
+[color] 5
+(30)file_io_testbench.u_connect_domain_get.sum_gray1[31:0]
+[color] 5
+(31)file_io_testbench.u_connect_domain_get.sum_gray1[31:0]
+@1401204
+-group_end
+@24
+[color] 4
+file_io_testbench.u_connect_domain_get.label2[9:0]
+[color] 4
+file_io_testbench.u_connect_domain_get.upm2[8:1]
+[color] 4
+file_io_testbench.u_connect_domain_get.dw2[8:1]
+[color] 4
+file_io_testbench.u_connect_domain_get.le2[8:1]
+[color] 4
+file_io_testbench.u_connect_domain_get.ri2[8:1]
+[color] 4
+file_io_testbench.u_connect_domain_get.num_gray2[19:1]
+[color] 4
+file_io_testbench.u_connect_domain_get.sum_gray2[31:1]
+[pattern_trace] 1
+[pattern_trace] 0
