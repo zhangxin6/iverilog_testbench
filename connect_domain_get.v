@@ -286,11 +286,18 @@ module connect_domain_get(
                 pixel_last_label[i] <= 0;
             end
         end
-        else if(hs_neg==1)
+        else if(hs_neg==1&&hang_cnt>1)
         begin
             for(i=0;i<LIE_NUM;i=i+1)
             begin
                 pixel_last_label[i] <= pixel_last_temp[i];
+            end
+        end
+        else if(fs_neg==1)
+        begin
+            for(i=0;i<LIE_NUM;i=i+1)
+            begin
+                pixel_last_label[i] <= 0;
             end
         end
     end
