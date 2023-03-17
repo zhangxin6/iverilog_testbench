@@ -32,7 +32,7 @@ module file_io_testbench(
     initial begin
         clk   = 0;
         rst_n = 0;
-        $readmemh("C:/Users/zhang/iverilog_testbench/file_io/5.txt",PicMem);         //把tb1.txt中的图像数据读取到PicMem中来
+        $readmemh("/mnt/sda1/connect_test/iverilog_testbench/file_io/5.txt",PicMem);         //把tb1.txt中的图像数据读取到PicMem中来
 
         #100 rst_n=1;
         #100000;
